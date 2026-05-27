@@ -1,6 +1,8 @@
 #include "timer_utils.h"
 
-volatile uint32_t msTicks = 0;
+void SysTick_Handler(void);
+
+static volatile uint32_t msTicks = 0U;
 
 // To przerwanie sprzętowe działa w tle
 void SysTick_Handler(void) {

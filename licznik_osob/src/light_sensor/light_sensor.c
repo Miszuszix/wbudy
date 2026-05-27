@@ -2,8 +2,9 @@
 #include "light_sensor.h"
 #include "light.h" // Standardowa biblioteka EA dla czujnika światła
 
-#define LIGHT_DARK 200
-#define LIGHT_BRIGHT 450
+// FIX 10.4: Wymuszenie typu bez znaku dla stałych
+#define LIGHT_DARK 200U
+#define LIGHT_BRIGHT 450U
 
 void init_light_sensor(void) {
     light_init();
@@ -18,16 +19,20 @@ int is_dark_mode(void) {
     static int current_mode = 0; // Zaczynamy zakładając, że jest dzień (0)
 
     // NASZA HISTEREZA
-    if (current_mode == 0 && lux < LIGHT_DARK) {
+    // FIX 12.1: Każdy pod-warunek logiczny jest teraz w nawiasach
+    if ((current_mode == 0) && (lux < LIGHT_DARK)) {
         // Był dzień, ale zrobiło się bardzo ciemno -> Przełącz na NOC
         current_mode = 1;
     }
-    else if (current_mode == 1 && lux > LIGHT_BRIGHT) {
+    else if ((current_mode == 1) && (lux > LIGHT_BRIGHT)) {
         // Była noc, ale ktoś zapalił mocne światło -> Przełącz na DZIEŃ
         current_mode = 0;
     }
+    else {
+        // FIX 15.7: MISRA wymaga jawnego domknięcia każdej drabinki warunkowej.
+        // Jeśli lux jest między 200 a 450, current_mode się nie zmienia.
+    }
 
-    // Jeśli lux jest między 400 a 800, current_mode się nie zmienia.
     return current_mode;
 }
 

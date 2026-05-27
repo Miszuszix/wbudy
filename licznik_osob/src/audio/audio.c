@@ -23,19 +23,19 @@ void init_audio(void) {
 // Często studenci piszą własną pętlę for lub używają Timer0.
 static void playNote(uint32_t period, uint32_t duration_ms) {
     uint32_t elapsed = 0;
-    uint32_t half_period = period / 2;
-    uint32_t duration_us = duration_ms * 1000;
+    uint32_t half_period = period / 2U;
+    uint32_t duration_us = duration_ms * 1000U;
 
     while (elapsed < duration_us) {
         // DAC przyjmuje wartości od 0 do 1023.
         // 1023 to maksymalne napięcie na membranie głośnika.
-        DAC_UpdateValue(LPC_DAC, 1023);
+        DAC_UpdateValue(LPC_DAC, 1023U);
 
         // Zastąp to swoją funkcją opóźnienia, np. delay_us(half_period)
         Timer0_Wait(1);
 
         // 0 to brak napięcia (membrana opada)
-        DAC_UpdateValue(LPC_DAC, 0);
+        DAC_UpdateValue(LPC_DAC, 0U);
 
         // Zastąp to swoją funkcją opóźnienia, np. delay_us(half_period)
         Timer0_Wait(1);
@@ -59,5 +59,8 @@ void playSong(int songIndex) {
         // Dźwięk błędu/limitu (niski i długi)
         playNote(2551, 300);
         playNote(2551, 300);
+    }
+    else {
+        
     }
 }

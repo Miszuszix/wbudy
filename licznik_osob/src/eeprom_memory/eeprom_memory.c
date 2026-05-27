@@ -12,6 +12,7 @@ void init_counter_memory(void) {
 }
 
 int load_saved_counter(void) {
+        read_value = 0U;
     uint8_t read_value = 0;
 
     // Czytamy 1 bajt danych z naszej szuflady (COUNTER_ADDR)
@@ -19,9 +20,9 @@ int load_saved_counter(void) {
 
     // Zabezpieczenie: jeśli EEPROM jest całkowicie pusty (0xFF),
     // to zakładamy, że to pierwsze uruchomienie i licznik to 0.
-    if (read_value > 20) {
+    if (read_value > 20U) {
         save_counter(0);
-        return 0;
+        read_value = 0U;
     }
 
     return (int)read_value;
