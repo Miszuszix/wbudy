@@ -1,0 +1,2 @@
+../src/timer/timer_utils.c:6:6:SysTick_Handler	4	static
+../src/timer/timer_utils.c:11:10:getTicks	4	static

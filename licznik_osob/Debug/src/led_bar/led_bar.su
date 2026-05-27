@@ -1,0 +1,2 @@
+../src/led_bar/led_bar.c:7:6:init_led_bar	16	static
+../src/led_bar/led_bar.c:28:6:update_led_bar	24	static

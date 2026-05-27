@@ -1,0 +1,3 @@
+../src/audio/audio.c:6:6:init_audio	16	static
+../src/audio/audio.c:24:13:playNote	32	static
+../src/audio/audio.c:47:6:playSong	16	static

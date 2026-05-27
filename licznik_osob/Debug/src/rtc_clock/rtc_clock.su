@@ -1,0 +1,2 @@
+../src/rtc_clock/rtc_clock.c:3:6:init_rtc	40	static
+../src/rtc_clock/rtc_clock.c:19:6:get_current_time	16	static

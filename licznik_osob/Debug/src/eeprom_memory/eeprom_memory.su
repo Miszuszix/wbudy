@@ -1,0 +1,3 @@
+../src/eeprom_memory/eeprom_memory.c:9:6:init_counter_memory	8	static
+../src/eeprom_memory/eeprom_memory.c:14:5:load_saved_counter	16	static
+../src/eeprom_memory/eeprom_memory.c:29:6:save_counter	24	static
