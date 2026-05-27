@@ -2,6 +2,8 @@
 #include "lpc17xx_timer.h"
 #include "lpc17xx_dac.h"    // Biblioteka obsługująca sprzętowy DAC
 #include "lpc17xx_pinsel.h" // Biblioteka do zmiany funkcji pinów
+#include "lpc17xx_dac.h"    
+#include "lpc17xx_pinsel.h" 
 
 void init_audio(void) {
     PINSEL_CFG_Type PinCfg;
@@ -12,6 +14,7 @@ void init_audio(void) {
     PinCfg.Pinmode = 0;
     PinCfg.Portnum = 0;
     PinCfg.Pinnum = 26; // Pin P0.26, do którego fizycznie podpięty jest głośnik
+    PinCfg.Pinnum = 26; 
     PINSEL_ConfigPin(&PinCfg);
 
     // Uruchomienie sprzętowego układu DAC

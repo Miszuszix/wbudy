@@ -36,6 +36,7 @@ void update_led_bar(int liczba_osob) {
 
     if (lokalna_liczba == 16U) {
         maska_zapalona = 0xFFFFU; // FIX 10.3: dodany sufiks U
+        maska_zapalona = 0xFFFFU; 
     }
     else if (lokalna_liczba > 0U) {
         // FIX 10.1 i 10.3: 1U wymusza bezpieczne przesunięcie bitowe.

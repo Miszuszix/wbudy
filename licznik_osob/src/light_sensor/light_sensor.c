@@ -1,6 +1,7 @@
 #include "stdint.h"
 #include "light_sensor.h"
 #include "light.h" // Standardowa biblioteka EA dla czujnika światła
+#include "light.h" 
 
 // FIX 10.4: Wymuszenie typu bez znaku dla stałych
 #define LIGHT_DARK 200U
@@ -17,6 +18,7 @@ int is_dark_mode(void) {
 
     // Zmienna static pamięta swój stan między wywołaniami funkcji!
     static int current_mode = 0; // Zaczynamy zakładając, że jest dzień (0)
+    static int current_mode = 0; 
 
     // NASZA HISTEREZA
     // FIX 12.1: Każdy pod-warunek logiczny jest teraz w nawiasach

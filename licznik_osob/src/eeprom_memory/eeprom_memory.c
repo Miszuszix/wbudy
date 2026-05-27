@@ -1,6 +1,7 @@
 #include "eeprom_memory.h"
 #include <stdint.h>
 #include "eeprom.h" // Biblioteka EaBaseBoard
+#include "eeprom.h" 
 
 // Definiujemy, w którym miejscu (adresie) w pamięci trzymamy nasz wynik.
 // EEPROM to taka długa szafka, wybieramy pierwszą szufladę (0x00).
