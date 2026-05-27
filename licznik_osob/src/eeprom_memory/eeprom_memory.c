@@ -19,7 +19,8 @@ int load_saved_counter(void) {
 
     // Zabezpieczenie: jeśli EEPROM jest całkowicie pusty (0xFF),
     // to zakładamy, że to pierwsze uruchomienie i licznik to 0.
-    if (read_value == 0xFF) {
+    if (read_value > 20) {
+        save_counter(0);
         return 0;
     }
 
