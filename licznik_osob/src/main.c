@@ -181,12 +181,12 @@ int main(void) {
             get_current_time(&aktualny_czas);
 
             char buf_czas[25];
-            (void)sprintf(buf_czas, "Teraz: %02d:%02d:%02d", aktualny_czas.HOUR, aktualny_czas.MIN, aktualny_czas.SEC);
+            (void)sprintf(buf_czas, "Teraz: %02d:%02d:%02d", (int)aktualny_czas.HOUR, (int)aktualny_czas.MIN, (int)aktualny_czas.SEC);
             oled_putString(1, 16, (uint8_t*)buf_czas, fg_color, bg_color);
 
             if (bylo_przepelnienie == 1) {
                 char buf_log[25];
-                (void)sprintf(buf_log, "Alarm: %02d:%02d:%02d", ost_przepelnienie.HOUR, ost_przepelnienie.MIN, ost_przepelnienie.SEC);
+                (void)sprintf(buf_log, "Alarm: %02d:%02d:%02d", (int)ost_przepelnienie.HOUR, (int)ost_przepelnienie.MIN, (int)ost_przepelnienie.SEC);
                 oled_putString(1, 31, (uint8_t*)buf_log, fg_color, bg_color);
 
             } else {

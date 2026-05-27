@@ -32,13 +32,13 @@ static void playNote(uint32_t period, uint32_t duration_ms) {
         DAC_UpdateValue(LPC_DAC, 1023U);
 
         // Zastąp to swoją funkcją opóźnienia, np. delay_us(half_period)
-        Timer0_Wait(1);
+        Timer0_Wait(half_period);
 
         // 0 to brak napięcia (membrana opada)
         DAC_UpdateValue(LPC_DAC, 0U);
 
         // Zastąp to swoją funkcją opóźnienia, np. delay_us(half_period)
-        Timer0_Wait(1);
+        Timer0_Wait(half_period);
 
         elapsed += period;
     }
